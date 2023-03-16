@@ -20,7 +20,7 @@ mkdir variant_Calls
 for file in $(ls RemoveDups/); do
 filename=${file:0:7}
 java -Xmx2g -jar $EBROOTGATK/gatk-package-4.1.2.0-local.jar HaplotypeCaller \
--R -R ${refpath}/human.g1k.v37.chr22.fa \
+-R  ${refpath}/human.g1k.v37.chr22.fa \
 -I RemoveDups/${filename}.sort.rmdup.bam \
--O variant_Calls/${filename}.sort.rmdup.bam.vcf
+-O variant_Calls/${filename}.sort.rmdup.bam.vcf 
 done

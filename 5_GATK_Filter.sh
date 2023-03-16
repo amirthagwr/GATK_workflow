@@ -20,7 +20,7 @@ mkdir GATK_Filter
 for file in $(ls variant_Calls/); do
 filename=${file:0:7}
 java -jar $EBROOTGATK/gatk-package-4.1.2.0-local.jar VariantFiltration \
--R /global/home/sa103025/Testing_Ass5/human.g1k.v37.chr22.fa \
+-R ${refpath}/human.g1k.v37.chr22.fa \
 --variant variant_Calls/${filename}.sort.rmdup.bam.vcf \
 -O GATK_Filter/${filename}.sort.rmdup.bam.filter.vcf \
 --filter-expression "QD < 2.0" \
@@ -28,5 +28,5 @@ java -jar $EBROOTGATK/gatk-package-4.1.2.0-local.jar VariantFiltration \
 --filter-expression "MQ < 40.0" \
 --filter-name "QDFilter" \
 --filter-name "FSFilter" \
---filter-name "MQFilter"
+--filter-name "MQFilter" 
 done
