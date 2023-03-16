@@ -14,6 +14,8 @@ module load vcftools
 
 cd $PWD
 
+mkdir Final_merged
+
 for file in $(ls GATK_Filter/*.vcf); do bgzip ${file}; done 
 for file in $(ls GATK_Filter/*.vcf.gz); do tabix ${file} ; done 
-vcf-merge GATK_Filter/*.vcf.gz > merged_all_variants2.vcf
+vcf-merge GATK_Filter/*.vcf.gz > Final_merged/merged_all_variants2.vcf
